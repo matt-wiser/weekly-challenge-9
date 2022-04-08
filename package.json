@@ -1,0 +1,14 @@
+{
+  "name": "weekly-challenge-9",
+  "version": "1.0.0",
+  "description": "an interactive README generator with content based on user prompts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^8.2.2"
+  }
+}
