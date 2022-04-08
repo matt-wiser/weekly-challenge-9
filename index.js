@@ -1,6 +1,6 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
-const { renderLicenseBadge, renderLicenseLink, generateMarkdown } = require('./utils/generateMarkdown');
+const { generateMarkdown } = require('./utils/generateMarkdown');
 const { writeToFile } = require('./utils/fileOperations');
 // TODO: Create an array of questions for user input
 const questions = [
