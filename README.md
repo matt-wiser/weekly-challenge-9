@@ -16,6 +16,7 @@ Create an interactive command line interface program using Node.js, inquirer, an
 * Once all dependencies have been installed initiate the application by entering the command "node index"
 * Follow the onscreen prompts in order to produce a professional looking markdown README file for your project
 * Once all input has been given the produced README file can be found within the dist folder in the root directory of the project
+* [Click Here for a Video Walkthrough](https://www.youtube.com/watch?v=8bszQBFUP-Y)
 
 
 ## Built By
