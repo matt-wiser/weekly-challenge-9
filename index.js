@@ -100,26 +100,12 @@ const questions = [
 ];
 
 async function init() {
-    // inquirer.prompt(questions)
-    // .then(userResponses => {
-    //     return generateMarkdown(userResponses);
-    // })
-    // .then(renderedMarkdown => {
-    //     writeToFile(renderedMarkdown);
-    // })
-    // .then(fileWriteInfo => {
-    //     console.log(fileWriteInfo.message);
-    // })
-    // .catch(err => {
-    //     console.log(err);
-    // })
-    
     try {
         const userResponses = await inquirer.prompt(questions);
         const renderedMarkdown = generateMarkdown(userResponses);
         checkForDist();
         fs.writeFile('./dist/README.md', renderedMarkdown, err => {
-            err ? console.log("FILE WRITE FAILED") : console.log("FILE WRITE SUCCESS");
+            err ? console.log("FILE WRITE FAILED", err) : console.log("README successfully created, check it out in the dist folder!");
         })  
     } catch (error) {
         console.log(error.message);
