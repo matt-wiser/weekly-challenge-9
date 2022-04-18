@@ -1,15 +1,11 @@
 const fs = require('fs');
 
-// TODO: Create a function to write README file
 const checkForDist = () => {
     const exists = fs.existsSync('./dist');
     if (!exists) {
         fs.mkdir("./dist", err =>{
-            if (err) {
-                console.log("directory creation failed!");   
-            }
+            err ? console.log("directory creation failed!") : console.log("directory creation succeeded")
         });
-        return;
     } else {
         return;
     }
@@ -24,11 +20,11 @@ const writeToFile = (data) => {
             } else {
                 resolve({
                     ok: true,
-                    message: 'README file created!'
+                    message: 'README file created! Check it out in the dist folder!'
                 })
             }
         })
     });
 }
 
-module.exports = {writeToFile};
+module.exports = {writeToFile, checkForDist};

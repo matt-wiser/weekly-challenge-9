@@ -60,7 +60,6 @@ function renderTestingSection(testing) {
   }
 }
 
-// TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   const {title, description, install, usage, contribution, testing, license, email, github} = data;
   return   `

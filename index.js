@@ -1,8 +1,8 @@
-// TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const { generateMarkdown } = require('./utils/generateMarkdown');
-const { writeToFile } = require('./utils/fileOperations');
-// TODO: Create an array of questions for user input
+const { checkForDist } = require('./utils/fileOperations');
+const fs = require('fs');
+
 const questions = [
     {
         type: 'input',
@@ -99,17 +99,31 @@ const questions = [
     }
 ];
 
-// TODO: Create a function to initialize app
-function init() {
-    inquirer.prompt(questions)
-    .then(userResponses => {
-        console.log(userResponses);
-        return generateMarkdown(userResponses);
-    })
-    .then(renderedMarkdown => {
-        writeToFile(renderedMarkdown);
-    })
+async function init() {
+    // inquirer.prompt(questions)
+    // .then(userResponses => {
+    //     return generateMarkdown(userResponses);
+    // })
+    // .then(renderedMarkdown => {
+    //     writeToFile(renderedMarkdown);
+    // })
+    // .then(fileWriteInfo => {
+    //     console.log(fileWriteInfo.message);
+    // })
+    // .catch(err => {
+    //     console.log(err);
+    // })
+    
+    try {
+        const userResponses = await inquirer.prompt(questions);
+        const renderedMarkdown = generateMarkdown(userResponses);
+        checkForDist();
+        fs.writeFile('./dist/README.md', renderedMarkdown, err => {
+            err ? console.log("FILE WRITE FAILED") : console.log("FILE WRITE SUCCESS");
+        })  
+    } catch (error) {
+        console.log(error.message);
+    }
 }
 
-// Function call to initialize app
 init();
